@@ -1,0 +1,41 @@
+{
+  "env":{
+    "node":true,
+  }
+  ,"parser":"babel-eslint"
+    ,"parserOptions":{
+      "ecmaFeatures":{
+        "impliedStrict":true
+      }
+      ,"sourceType":"module"
+    }
+  ,"rules":{
+    "jsdoc/check-param-names": 1,
+    "jsdoc/check-tag-names": 1,
+    "jsdoc/check-types": 1,
+    "jsdoc/newline-after-description": 1,
+    "jsdoc/require-hyphen-before-param-description": 1,
+    "jsdoc/require-param": 1,
+    "jsdoc/require-param-description": 1,
+    "jsdoc/require-param-name": 1,
+    "jsdoc/require-param-type": 1,
+    "jsdoc/require-returns-description": 1,
+    "jsdoc/require-returns-type": 1,
+    "no-console":"off"
+  }
+  ,overrides: [{
+    files: "*.test.js",
+    "env":{
+      "node":true,
+      "mocha":true,
+    },
+    rules: {
+      "no-unused-expressions": "off",
+      "no-underscore-dangle":"off"
+    }
+  }]
+  ,"plugins": [
+    "jsdoc"
+  ]
+  ,"extends":["airbnb-base"]
+}
