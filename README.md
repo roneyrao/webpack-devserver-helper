@@ -1,6 +1,6 @@
 # Webpack devServer helper
 
-A processor to implement data mocking from static file via `devServer.historyApiFallback.rewrites`. Also a tool to parse mock configuration. Another tool is used to process `devServer.proxy` configuration, taking into account the `public path` and other stuff, to simplify its configuration.
+A processor to mock data from static file via `devServer.historyApiFallback.rewrites`. Also a tool to parse mock configuration. Another tool is used to process `devServer.proxy` configuration, taking into account the `public path` and other stuff, to simplify its configuration.
 
 ## Mock illustration
 
