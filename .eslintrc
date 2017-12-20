@@ -21,7 +21,6 @@
     "jsdoc/require-param-type": 1,
     "jsdoc/require-returns-description": 1,
     "jsdoc/require-returns-type": 1,
-    "no-console":"off"
   }
   ,overrides: [{
     files: "*.test.js",

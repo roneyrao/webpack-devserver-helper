@@ -1,5 +1,11 @@
 # Webpack devServer helper
 
+[![Build Status](https://travis-ci.org/roneyrao/webpack-devserver-helper.svg?branch=master)](https://travis-ci.org/roneyrao/webpack-devserver-helper)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/0d9047bd9fae6577010b/test_coverage)](https://codeclimate.com/github/roneyrao/webpack-devserver-helper/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/0d9047bd9fae6577010b/maintainability)](https://codeclimate.com/github/roneyrao/webpack-devserver-helper/maintainability)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/roneyrao/webpack-devserver-helper/master/LICENSE)
+
+
 A processor to mock data from static file via `devServer.historyApiFallback.rewrites`. Also a tool to parse mock configuration. Another tool is used to process `devServer.proxy` configuration, taking into account the `public path` and other stuff, to simplify its configuration.
 
 ## Mock illustration
@@ -196,4 +202,9 @@ Refine setting for `devServer.proxy`.
 | publicPath | <code>string</code> | the option set in webpack. |
 | apiPrefix | <code>string</code> | default url to match when url is missing in config. |
 
+
+
+## License
+
+[MIT](LICENSE).
 
