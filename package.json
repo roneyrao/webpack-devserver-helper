@@ -2,12 +2,11 @@
   "name": "webpack-devserver-helper",
   "version": "1.0.0",
   "description": "helper for webpack-dev-server for data mocking and proxy ",
-  "main": "dist",
-  "module": "lib",
+  "main": "lib",
   "scripts": {
-    "test": "cross-env DEBUG=webpackDevserverHelper BABEL_ENV=test nyc --reporter=lcov --reporter=text mocha lib",
-    "lint": "eslint lib",
-    "build": "babel lib -d dist -s --ignore '**/*.test.js'",
+    "test": "cross-env DEBUG=webpackDevserverHelper BABEL_ENV=test nyc --reporter=lcov --reporter=text mocha src",
+    "lint": "eslint src",
+    "build": "babel src -d lib -s",
     "prebuild": "npm run lint && npm test",
     "prepublishOnly": "npm run build"
   },
@@ -16,6 +15,9 @@
     "devSever",
     "mock",
     "proxy"
+  ],
+  "files": [
+    "lib"
   ],
   "repository": {
     "type": "git",
@@ -29,9 +31,11 @@
   "license": "ISC",
   "dependencies": {
     "debug": "^3.1.0",
+    "babel-polyfill": "^6.26.0",
     "url-join": "^2.0.2"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-eslint": "^8.0.3",
     "babel-plugin-istanbul": "^4.1.5",
     "babel-preset-es2015": "^6.24.1",

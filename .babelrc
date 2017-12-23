@@ -4,5 +4,6 @@
     "test":{
       "plugins":["istanbul"]
     }
-  }
+  },
+  "ignore":["**/*.test.js"]
 }
