@@ -6,7 +6,7 @@
   "module": "lib",
   "scripts": {
     "test": "cross-env DEBUG=webpackDevserverHelper BABEL_ENV=test nyc --reporter=lcov --reporter=text mocha lib",
-    "lint": "eslint .",
+    "lint": "eslint lib",
     "build": "babel lib -d dist -s --ignore '**/*.test.js'",
     "prebuild": "npm run lint && npm test",
     "prepublishOnly": "npm run build"
