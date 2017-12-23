@@ -1,10 +1,3 @@
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.parseMockConfig = parseMockConfig;
-exports.staticMock = staticMock;
 /**
  * Generate config of full format from shorthand, for staticMock using.
  * Acceptible formats refering to @see.
@@ -35,25 +28,25 @@ exports.staticMock = staticMock;
  *    }
  *    ```
  */
-require('babel-polyfill');
+import 'babel-polyfill';
 
-var debug = require('debug')('webpackDevserverHelper');
-var joinUrl = require('url-join');
+const debug = require('debug')('webpackDevserverHelper');
+const joinUrl = require('url-join');
 
-function parseMockConfig(cfg) {
-  var newCfg = void 0;
+export function parseMockConfig(cfg) {
+  let newCfg;
   if (cfg === true) {
     newCfg = {
-      folder: 'mock'
+      folder: 'mock',
     };
-  } else if (typeof cfg === 'string') {
+  } else if (typeof (cfg) === 'string') {
     newCfg = {
-      folder: cfg
+      folder: cfg,
     };
   } else if (Array.isArray(cfg)) {
     newCfg = {
       folder: 'mock',
-      rewrites: cfg
+      rewrites: cfg,
     };
   } else if (!cfg.folder) {
     newCfg = cfg;
@@ -65,8 +58,8 @@ function parseMockConfig(cfg) {
 }
 
 function findPathFromRewrites(path, rewrites) {
-  var reg = void 0;
-  var arr = rewrites.find(function (el) {
+  let reg;
+  const arr = rewrites.find((el) => {
     reg = new RegExp(el[0]);
     return reg.test(path);
   });
@@ -82,22 +75,18 @@ function findPathFromRewrites(path, rewrites) {
  *
  * @returns {Function} - function mapping path to mock data file name.
  */
-function staticMock(mockConfig) {
-  var publicPath = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
-  var ext = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'json';
-
+export function staticMock(mockConfig, publicPath = '', ext = 'json') {
   return function mock(path) {
-    var newPath = void 0;
-    var extApplied = '';
+    let newPath;
+    let extApplied = '';
     debug('mock from:', path);
     if (mockConfig.rewrites) {
       newPath = findPathFromRewrites(path, mockConfig.rewrites);
     } else {
-      extApplied = '.' + ext;
+      extApplied = `.${ext}`;
     }
-    var paths = [mockConfig.folder, (newPath || path) + extApplied];
-    if (publicPath) {
-      // joinUrl treats empty string as slash
+    const paths = [mockConfig.folder, (newPath || path) + extApplied];
+    if (publicPath) { // joinUrl treats empty string as slash
       paths.unshift(publicPath);
     }
     newPath = joinUrl(paths);
@@ -105,4 +94,4 @@ function staticMock(mockConfig) {
     return newPath;
   };
 }
-//# sourceMappingURL=mock.js.map
+

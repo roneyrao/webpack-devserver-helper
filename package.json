@@ -6,7 +6,7 @@
   "scripts": {
     "test": "cross-env DEBUG=webpackDevserverHelper BABEL_ENV=test nyc --reporter=lcov --reporter=text mocha src",
     "lint": "eslint src",
-    "build": "babel src -d lib -s",
+    "build": "cross-env BABEL_ENV=node babel src -d lib -s",
     "prebuild": "npm run lint && npm test",
     "prepublishOnly": "npm run build"
   },
